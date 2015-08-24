@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &127684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 495234}
+  - 114: {fileID: 11428444}
+  - 114: {fileID: 11440794}
+  - 33: {fileID: 3366966}
+  m_Layer: 0
+  m_Name: SirokaRandom
+  m_TagString: siroka
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495234
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.8999996, y: -.0199999996, z: 58.2178879}
+  m_LocalScale: {x: 1, y: 1, z: 40}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!33 &3366966
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127684}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11428444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6686dd030b9804842a194737f5cb9fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r1: {fileID: 139308, guid: c52aabd0588667a4b92775e0c13d8cd4, type: 2}
+  r2: {fileID: 105096, guid: 092b7fbf0dddb734490ed6e08df2f3f7, type: 2}
+  r3: {fileID: 181764, guid: e0452267bdbe07e489d5e19c3f632a1f, type: 2}
+  r4: {fileID: 176340, guid: ac124c4c24bd489478c74fc5eea8e2aa, type: 2}
+  r5: {fileID: 157942, guid: a73b9ad56c989f2479a4beb0a36537ab, type: 2}
+  r6: {fileID: 184052, guid: 69914063dff28c6459004ba5790f0f5b, type: 2}
+  r7: {fileID: 125228, guid: 112131ceb58793049bc0eaa4b91dc18c, type: 2}
+  r8: {fileID: 149358, guid: d3d5e3d07af5b1f479e035ec66982685, type: 2}
+  r9: {fileID: 187276, guid: 19e2d667cca58904dbb43049a76e5c98, type: 2}
+--- !u!114 &11440794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeefb95c4bcd5b4a8bcc2855d16e235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nazaj: {fileID: 0}
+  id: 
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: siroka
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 127684}
+  m_IsPrefabParent: 1
