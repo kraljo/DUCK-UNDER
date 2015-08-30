@@ -15,8 +15,8 @@ public class TokVodeSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
-		if (other.tag.Equals ("raca") || other.tag.Equals("tocka") || other.tag.Equals("osamljena")) {
+		/*if (other.tag.Equals ("raca") || other.tag.Equals("tocka") || other.tag.Equals("osamljena")) {
 			other.gameObject.transform.position += transform.forward * silaToka * Time.deltaTime;
-		}
+		}*/
 	}
 }

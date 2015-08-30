@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d7e9b98bb723cd94ca31b54c2e1ad959
-timeCreated: 1440333819
+guid: d3b6ee69a95a87a4ebf868624b5f19be
+timeCreated: 1440753983
 licenseType: Free
 PluginImporter:
   serializedVersion: 1
@@ -45,7 +45,7 @@ PluginImporter:
       enabled: 1
       settings:
         CPU: AnyCPU
-        DontProcess: False
+        DontProcess: True
         PlaceholderPath: Assets/plugins/UnityPluginForWindowsPhone.dll
     Win:
       enabled: 0

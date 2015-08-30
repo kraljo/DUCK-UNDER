@@ -45,7 +45,7 @@ public class OtrokSkripta : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag.Equals ("kolo")) {
+		if (other.CompareTag ("kolo")) {
 			if(!povozena){
 				RackaSkripta.stRack--;
 				povozena=true;

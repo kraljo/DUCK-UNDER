@@ -46,7 +46,7 @@ public class InputKey : MonoBehaviour {
 					RaycastHit[] hit;
 					hit = Physics.RaycastAll (ray);
 					for (int i=0; i < hit.Length; i++) {
-						if (hit [i].point != null && hit [i].collider.gameObject.tag.Equals ("teren") || hit [i].collider.gameObject.tag.Equals ("tla") || hit [i].collider.gameObject.tag.Equals ("voda")) {
+						if (hit [i].point != null && hit [i].collider.gameObject.CompareTag ("teren") || hit [i].collider.gameObject.CompareTag ("tla") || hit [i].collider.gameObject.CompareTag ("voda")) {
 							tocka.transform.position = hit [i].point;
 							tocka.SetActive(true);
 							Zvok();
@@ -61,7 +61,7 @@ public class InputKey : MonoBehaviour {
 				RaycastHit[] hit;
 				hit = Physics.RaycastAll (ray);
 				for (int i=0; i < hit.Length; i++) {
-					if (hit [i].point != null && hit [i].collider.gameObject.tag.Equals ("teren") || hit [i].collider.gameObject.tag.Equals ("tla") || hit [i].collider.gameObject.tag.Equals ("voda")) {
+					if (hit [i].point != null && hit [i].collider.gameObject.CompareTag ("teren") || hit [i].collider.gameObject.CompareTag ("tla") || hit [i].collider.gameObject.CompareTag ("voda")) {
 						tocka.transform.position = hit [i].point;
 						tocka.SetActive(true);
 						Zvok();

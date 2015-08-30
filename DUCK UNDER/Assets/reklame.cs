@@ -12,7 +12,7 @@ public class reklame : MonoBehaviour {
 		//UnityPluginForWindowsPhone.Class1.loadCelozaslonsko ();
 
 		//UnityPluginForWindowsPhone.Class1.createBanner (false,"ca-app-pub-6223160944701050/4726628723",true);
-		UnityPluginForWindowsPhone.Class1.createBanner (false,"ca-app-pub-6223160944701050/4726628723",true,"MALE","2/15/2012 6:00:00 AM -7:00",true);
+		UnityPluginForWindowsPhone.Class1.createBanner (false,"ca-app-pub-6223160944701050/4726628723",true,"MALE","5/01/2008",true);
 		//x.klas ();
 
 	}

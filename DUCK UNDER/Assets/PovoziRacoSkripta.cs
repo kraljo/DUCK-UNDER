@@ -15,7 +15,7 @@ public class PovoziRacoSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag.Equals ("kolo")) {
+		if (other.CompareTag ("kolo")) {
 			skripta.povoziRaco ();
 		}
 	}

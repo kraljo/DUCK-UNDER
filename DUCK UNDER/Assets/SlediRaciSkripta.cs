@@ -43,7 +43,8 @@ public class SlediRaciSkripta : MonoBehaviour {
 			hit = Physics.RaycastAll (ray);
 			MeniSkripta.stejTocke=true;
 			for (int i=0; i < hit.Length; i++) {
-				if (hit [i].point != null && hit [i].collider.gameObject.tag.Equals ("siroka")) {
+
+				if (hit [i].point != null && hit [i].collider.gameObject.CompareTag ("siroka")) {
 					MeniSkripta.stejTocke=false;
 					break;
 				}

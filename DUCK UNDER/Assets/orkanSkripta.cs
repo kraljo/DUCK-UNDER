@@ -52,7 +52,7 @@ public class orkanSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag.Equals ("raca") || other.tag.Equals ("otrok") || other.tag.Equals ("coln")|| other.tag.Equals ("avto") || other.tag.Equals ("drevo") || other.tag.Equals("vozilo")) {
+		if (other.CompareTag ("raca") || other.CompareTag ("otrok") || other.CompareTag ("coln")|| other.CompareTag ("avto") || other.CompareTag ("drevo") || other.CompareTag("vozilo")) {
 			/*GameObject game = Instantiate(glavnaRacaVOrkanu,Vector3.zero,Quaternion.Euler(0,0,0)) as GameObject;*/
 			if(prvi != null){
 				GameObject game = sestavi(other.gameObject,gameObject);

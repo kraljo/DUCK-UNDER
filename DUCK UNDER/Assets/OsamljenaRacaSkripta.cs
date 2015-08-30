@@ -20,7 +20,7 @@ public class OsamljenaRacaSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag.Equals ("raca") && gameObject.activeSelf) {
+		if (other.CompareTag ("raca") && gameObject.activeSelf) {
 			GameObject[] tocke = other.gameObject.GetComponent<RackaSkripta>().tocke;
 			for(int i=0; i < tocke.Length; i++){
 				if(!tocke[i].GetComponent<ZasledujeMeSkripta>().ZasledujeMe.activeSelf){

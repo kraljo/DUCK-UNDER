@@ -111,9 +111,9 @@ public class RackaSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag.Equals ("voda")) {
+		if (other.CompareTag ("voda")) {
 			valovi.SetActive (true);
-		} else if (other.tag.Equals ("orkan")) {
+		} else if (other.CompareTag ("orkan")) {
 			meni.lost ();
 			gameObject.SetActive (false);
 		} 
@@ -128,7 +128,7 @@ public class RackaSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (other.tag.Equals ("voda")) {
+		if (other.CompareTag ("voda")) {
 			valovi.SetActive (false);
 		}
 	}
