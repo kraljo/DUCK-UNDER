@@ -15,6 +15,8 @@ public class MeniSkripta : MonoBehaviour {
 	public Text Score;
 	public Text stRack;
 
+	public InputField input;
+
 	float tocke;
 	float deltaTocke;
 	GameObject raca;
@@ -67,4 +69,15 @@ public class MeniSkripta : MonoBehaviour {
 			bestScore.text = Mathf.RoundToInt(tocke)+"";
 		}
 	}
+
+	public void logIN(){
+		leaderSkripta.userName = input.text;
+		leaderSkripta.createUser = true;
+	}
+
+	public void getUserRank(){
+		leaderSkripta.getUserRank = true;
+	}
+
+
 }
