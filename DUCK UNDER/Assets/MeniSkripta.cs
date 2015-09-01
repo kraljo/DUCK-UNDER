@@ -6,20 +6,28 @@ public class MeniSkripta : MonoBehaviour {
 
 	// Use this for initialization
 	public static bool stejTocke=false;
+	public static bool posodobiLeader = false;
 	public GameObject kamera;
 	public GameObject meni;
 	public GameObject hud;
 	public GameObject loose;
+	public GameObject signUpCanvas;
+	public GameObject leader;
 
 	public Text bestScore;
 	public Text Score;
 	public Text stRack;
+	public Text userRankText;
+	
+	public Text[] imeR;
+	public Text[] scoreR;
 
 	public InputField input;
 
 	float tocke;
 	float deltaTocke;
 	GameObject raca;
+	GameObject skladLeader;
 	void Awake(){
 		hud.SetActive (false);
 		loose.SetActive (false);
@@ -40,6 +48,26 @@ public class MeniSkripta : MonoBehaviour {
 		deltaTocke = kamera.transform.position.z;
 
 		Score.text = Mathf.RoundToInt (tocke)+"";
+		if (leader.activeSelf) {
+			if(PlayerPrefs.HasKey("rank"))
+				userRankText.text=PlayerPrefs.GetInt("rank")+"";
+
+			if(leaderSkripta.imeR != null && posodobiLeader){
+				posodobiLeader=false;
+				for(int i=0; i < leaderSkripta.imeR.Length; i++){
+					if(leaderSkripta.imeR[i] != null){
+						imeR[i].text = leaderSkripta.imeR[i];
+						scoreR[i].text = leaderSkripta.scoreR[i];
+					}
+				}
+
+			}
+
+		}
+		else if (Input.GetKey (KeyCode.Escape) && leader.activeSelf) {
+			leader.SetActive(false);
+		}
+
 	}
 
 
@@ -64,15 +92,43 @@ public class MeniSkripta : MonoBehaviour {
 		InputKey.enableI = false;
 		hud.SetActive (false);
 		loose.SetActive (true);
-		if (!PlayerPrefs.HasKey ("bestScore") || PlayerPrefs.GetInt ("bestScore") < Mathf.RoundToInt (tocke)) {
-			PlayerPrefs.SetInt ("bestScore", Mathf.RoundToInt (tocke));
+		if (!PlayerPrefs.HasKey ("score") || PlayerPrefs.GetInt ("score") < Mathf.RoundToInt (tocke)) {
+			PlayerPrefs.SetInt ("score", Mathf.RoundToInt (tocke));
+			leaderSkripta.saveScore=true;
 			bestScore.text = Mathf.RoundToInt(tocke)+"";
 		}
 	}
 
 	public void logIN(){
-		leaderSkripta.userName = input.text;
-		leaderSkripta.createUser = true;
+		if (input.text.Length >= 3) {
+			leaderSkripta.userName = input.text;
+			leaderSkripta.createUser = true;
+			signUpCanvas.SetActive(false);
+		}
+	}
+
+	public void leaderBoard(){
+		if (meni.activeSelf) {
+			skladLeader = meni;
+		} else {
+			skladLeader=loose;
+		}
+		skladLeader.SetActive (false);
+		leader.SetActive (true);
+		if (!PlayerPrefs.HasKey ("user")) {
+			signUpCanvas.SetActive (true);
+		} else {
+			leaderSkripta.getTopNRanks=true;
+			if(PlayerPrefs.HasKey("score")){
+				leaderSkripta.saveScore=true;
+			}
+
+		}
+	}
+
+	public void zapriLeader(){
+		leader.SetActive (false);
+		skladLeader.SetActive (true);
 	}
 
 	public void getUserRank(){

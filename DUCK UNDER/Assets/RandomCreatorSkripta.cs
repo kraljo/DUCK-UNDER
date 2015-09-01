@@ -201,7 +201,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 			nalozeno++;
 		}
 
-		if (raca && vDelovanju && list[list.Count-3].transform.position.z < raca.transform.position.z) {
+		if (raca && vDelovanju && list[list.Count-1].transform.position.z < raca.transform.position.z + 40) {
 			if(stetjeTrave >= 3){
 				stetjeTrave=0;
 				stTrav++;
@@ -238,7 +238,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 
 		}
 		Debug.Log (list [0].transform.position.z);
-		if (raca && vDelovanju && list[2].transform.position.z < raca.transform.position.z) {
+		if (raca && vDelovanju && list[0].transform.position.z < raca.transform.position.z - 40) {
 			GameObject brisem = list[0];
 			Debug.Log("prisem primerek");
 			string id = brisem.GetComponent<nazajSkripta>().id;
