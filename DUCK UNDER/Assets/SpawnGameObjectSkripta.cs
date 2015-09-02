@@ -15,8 +15,8 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 	Collider terminator;
 	float cas;
 	RandomCreatorSkripta mapCreator;
-	GameObject prvi;
-	public GameObject zadnji;
+	public GameObject prvi;
+	//public GameObject zadnji;
 
 	float prejsni;
 
@@ -53,11 +53,11 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 			vozilo.GetComponent<SkriptaPotujNaprej>().pozicija = vozilo.transform.localPosition;
 			zacasna.GetComponent<SkriptaPotujNaprej>().nazaj = vozilo;
 			zacasna = vozilo;
-			zadnji = zacasna;
+			//zadnji = zacasna;
 			zacasna.SetActive(false);
 		}
-
-		postaviVozila ();
+		zacasna.GetComponent<SkriptaPotujNaprej> ().nazaj = prvi;
+		//postaviVozila ();
 		//cas = vrniZamik(prvi) / speed;
 		//cas = 4;
 		RandomCreatorSkripta.nalozeno++;
@@ -76,11 +76,18 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 			prvi = zac.GetComponent<SkriptaPotujNaprej>().nazaj;
 			zac.SetActive(true);
 			Physics.IgnoreCollision(zac.GetComponent<Collider>(), terminator);
-			zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
+			//zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
 			cas = vrniZamik(prvi) / speed;
 		}
 
 
+	}
+
+	public void pospraviVse(int st,GameObject x){
+		x.SetActive (false);
+		if (st > 0) {
+			pospraviVse (st-1,x.GetComponent<SkriptaPotujNaprej> ().nazaj);
+		}
 	}
 
 	public void postaviVozila(){
@@ -96,7 +103,7 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 			prvi = zac.GetComponent<SkriptaPotujNaprej>().nazaj;
 			zac.SetActive(true);
 			Physics.IgnoreCollision(zac.GetComponent<Collider>(), terminator);
-			zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
+			//zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
 
 
 		}

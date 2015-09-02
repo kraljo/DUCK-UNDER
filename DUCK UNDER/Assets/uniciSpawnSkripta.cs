@@ -27,8 +27,8 @@ public class uniciSpawnSkripta : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("vozilo")) {
 			Debug.Log("unici");
-			spawn.zadnji.GetComponent<SkriptaPotujNaprej>().nazaj = other.gameObject;
-			spawn.zadnji = other.gameObject;
+			//spawn.zadnji.GetComponent<SkriptaPotujNaprej>().nazaj = other.gameObject;
+			//spawn.zadnji = other.gameObject;
 			other.gameObject.SetActive(false);
 		}
 	}

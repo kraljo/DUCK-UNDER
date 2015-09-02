@@ -242,8 +242,9 @@ public class RandomCreatorSkripta : MonoBehaviour {
 			GameObject brisem = list[0];
 			Debug.Log("prisem primerek");
 			string id = brisem.GetComponent<nazajSkripta>().id;
-			brisem.SetActive(false);
+
 			if(id.Equals("cesta")){
+				brisem.GetComponent<izberiSpawnSkripta>().pobrisiVozila();
 				zadnjiCesta.GetComponent<nazajSkripta>().nazaj = brisem;
 				zadnjiCesta = brisem;
 			
@@ -262,6 +263,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 				zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
 				zadnjiCrte = brisem;
 			}
+			brisem.SetActive(false);
 			list.RemoveAt(0);
 		}
 	}
@@ -278,6 +280,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 
 		if(spawnTabela == cesta){
 			spawn.GetComponent<izberiSpawnSkripta>().nastaviSpawnInHitrost(stTrav*2);
+			spawn.GetComponent<izberiSpawnSkripta>().postaviVozila();
 			prviCesta = spawn.GetComponent<nazajSkripta>().nazaj;
 		}
 		else if(spawnTabela == zeleznica){
@@ -327,6 +330,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 		}
 		list.Clear ();
 		vec = Vector3.zero;
+		stTrav = 0;
 		Kmetija.SetActive (true);
 		list.Add (Kmetija);
 		StartPostavitev ();

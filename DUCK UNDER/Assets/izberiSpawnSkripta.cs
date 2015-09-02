@@ -39,4 +39,14 @@ public class izberiSpawnSkripta : MonoBehaviour {
 		SpawnGameObjectSkripta[] spawn1 = GetComponentsInChildren<SpawnGameObjectSkripta> ();
 		spawn1[izbira].speed+= povecava;
 	}
+
+	public void pobrisiVozila(){
+		SpawnGameObjectSkripta[] spawn1 = GetComponentsInChildren<SpawnGameObjectSkripta> ();
+		spawn1 [izbira].pospraviVse (12,spawn1 [izbira].prvi);
+	}
+
+	public void postaviVozila(){
+		SpawnGameObjectSkripta[] spawn1 = GetComponentsInChildren<SpawnGameObjectSkripta> ();
+		spawn1 [izbira].postaviVozila ();
+	}
 }

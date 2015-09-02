@@ -16,9 +16,11 @@ public class vOrkanuSkripta : MonoBehaviour {
 			//transform.Rotate (kot, 0, 0);
 			smer = Quaternion.Euler(kot,0,0)*smer;
 		}
+
 		transform.position = pos;
 		transform.rotation = rot;
 		transform.SetParent (stars.transform);
+
 
 	}
 	

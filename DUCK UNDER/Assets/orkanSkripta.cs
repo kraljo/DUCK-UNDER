@@ -52,16 +52,22 @@ public class orkanSkripta : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.CompareTag ("raca") || other.CompareTag ("otrok") || other.CompareTag ("coln")|| other.CompareTag ("avto") || other.CompareTag ("drevo") || other.CompareTag("vozilo")) {
+		if (other.CompareTag ("raca") || other.CompareTag ("otrok")) {
 			/*GameObject game = Instantiate(glavnaRacaVOrkanu,Vector3.zero,Quaternion.Euler(0,0,0)) as GameObject;*/
-			if(prvi != null){
-				GameObject game = sestavi(other.gameObject,gameObject);
+			if (prvi != null) {
+				GameObject game = sestavi (other.gameObject, gameObject);
 				//game.transform.position = other.transform.position - game.transform.position;
 			}
 			//game.transform.parent = transform;
 
-			//other.gameObject.SetActive(false);
 
+
+		} else if (other.CompareTag ("drevo") || other.CompareTag ("vozilo")) {
+			if (prvi != null) {
+				GameObject game = sestavi (other.gameObject, gameObject);
+				//game.transform.position = other.transform.position - game.transform.position;
+			}
+			other.gameObject.SetActive (false);
 		}
 	}
 
@@ -85,7 +91,7 @@ public class orkanSkripta : MonoBehaviour {
 			game.GetComponent<MeshRenderer> ().enabled=false;
 		}
 
-		game.transform.localScale = obj.transform.localScale;
+		//game.transform.localScale = obj.transform.localScale;
 		for (int i=0; i < obj.transform.childCount; i++) {
 			if(prvi != null){
 				GameObject otrok = sestavi(obj.transform.GetChild(i).gameObject,game);
