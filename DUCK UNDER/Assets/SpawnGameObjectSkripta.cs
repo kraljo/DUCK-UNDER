@@ -104,7 +104,7 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 			zac.SetActive(true);
 			Physics.IgnoreCollision(zac.GetComponent<Collider>(), terminator);
 			//zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
-
+			cas = vrniZamik(prvi) / speed;
 
 		}
 	}

@@ -33,6 +33,7 @@ public class orkanSkripta : MonoBehaviour {
 			zac = zac.GetComponent<nazajSkripta>().nazaj;
 			zac.SetActive(false);
 		}
+		zac = zac.GetComponent<nazajSkripta> ().nazaj = prvi;
 		zadnji = zac;
 	}
 	
@@ -107,5 +108,6 @@ public class orkanSkripta : MonoBehaviour {
 
 	public void Reset(){
 		transform.position = zacPoz;
+		zatakni = false;
 	}
 }

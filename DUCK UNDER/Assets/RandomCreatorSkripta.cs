@@ -162,7 +162,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	public void StartPostavitev () {
 		dodajElement(prviCesta,cesta);
 		prejsni = cesta;
-		for (int i=0; i < 4; i++) {
+		for (int i=0; i < 10; i++) {
 			GameObject spawn = tabela[Random.Range(0,tabela.Length)];
 			if(spawn == prejsni && spawn == travaSiroka){
 				spawn = cesta;
@@ -306,8 +306,9 @@ public class RandomCreatorSkripta : MonoBehaviour {
 			GameObject brisem = list[i];
 			Debug.Log("prisem primerek");
 			string id = brisem.GetComponent<nazajSkripta>().id;
-			brisem.SetActive(false);
+
 			if(id.Equals("cesta")){
+				brisem.GetComponent<izberiSpawnSkripta>().pobrisiVozila();
 				zadnjiCesta.GetComponent<nazajSkripta>().nazaj = brisem;
 				zadnjiCesta = brisem;
 			
@@ -326,6 +327,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 				zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
 				zadnjiCrte = brisem;
 			}
+			brisem.SetActive(false);
 
 		}
 		list.Clear ();
