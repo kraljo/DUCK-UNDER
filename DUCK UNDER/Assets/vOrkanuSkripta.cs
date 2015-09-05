@@ -12,15 +12,15 @@ public class vOrkanuSkripta : MonoBehaviour {
 	Vector3 smer = Vector3.up;
 	Transform orkan=null;
 	public void StartOrkan (Vector3 pos, Quaternion rot, GameObject stars) {
-		if (enable) {
-			//transform.Rotate (kot, 0, 0);
-			smer = Quaternion.Euler(kot,0,0)*smer;
-		}
 
+			//transform.Rotate (kot, 0, 0);
+		smer = Quaternion.Euler(kot,0,0)*smer;
+		
+		enable = false;
 		transform.position = pos;
 		transform.rotation = rot;
 		transform.SetParent (stars.transform);
-
+		trajanje = 10;
 
 	}
 	
@@ -31,9 +31,9 @@ public class vOrkanuSkripta : MonoBehaviour {
 			sirota();
 		}
 		if (transform.position.y > 25) {
-			gameObject.SetActive(false);
 			orkanSkripta.zadnji.GetComponent<nazajSkripta>().nazaj = gameObject;
 			orkanSkripta.zadnji = gameObject;
+			gameObject.SetActive(false);
 		}
 		if (enable) {
 			transform.position += smer * speed * Time.deltaTime;

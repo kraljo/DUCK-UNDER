@@ -57,6 +57,7 @@ public class orkanSkripta : MonoBehaviour {
 			/*GameObject game = Instantiate(glavnaRacaVOrkanu,Vector3.zero,Quaternion.Euler(0,0,0)) as GameObject;*/
 			if (prvi != null) {
 				GameObject game = sestavi (other.gameObject, gameObject);
+				game.GetComponent<vOrkanuSkripta>().enable=true;
 				//game.transform.position = other.transform.position - game.transform.position;
 			}
 			//game.transform.parent = transform;
@@ -66,6 +67,7 @@ public class orkanSkripta : MonoBehaviour {
 		} else if (other.CompareTag ("drevo") || other.CompareTag ("vozilo")) {
 			if (prvi != null) {
 				GameObject game = sestavi (other.gameObject, gameObject);
+				game.GetComponent<vOrkanuSkripta>().enable=true;
 				//game.transform.position = other.transform.position - game.transform.position;
 			}
 			other.gameObject.SetActive (false);
@@ -100,6 +102,7 @@ public class orkanSkripta : MonoBehaviour {
 				otrok.transform.localPosition = obj.transform.GetChild(i).transform.localPosition;
 				otrok.transform.localRotation = obj.transform.GetChild(i).transform.localRotation;
 				otrok.transform.localScale = obj.transform.GetChild(i).transform.localScale;
+				Debug.Log("delam otroke");
 			}
 		}
 

@@ -36,7 +36,7 @@ public class MeniSkripta : MonoBehaviour {
 		raca = GameObject.Find ("raca");
 	}
 	void Start () {
-		bestScore.text = PlayerPrefs.GetInt ("bestScore")+"";
+		bestScore.text = PlayerPrefs.GetInt ("score")+"";
 	}
 	
 	// Update is called once per frame
