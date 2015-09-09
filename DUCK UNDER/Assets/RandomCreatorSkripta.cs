@@ -162,7 +162,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	public void StartPostavitev () {
 		dodajElement(prviCesta,cesta);
 		prejsni = cesta;
-		for (int i=0; i < 10; i++) {
+		for (int i=0; i < 4; i++) {
 			GameObject spawn = tabela[Random.Range(0,tabela.Length)];
 			if(spawn == prejsni && spawn == travaSiroka){
 				spawn = cesta;
@@ -202,7 +202,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 		}
 
 		if (raca && vDelovanju && list[list.Count-1].transform.position.z < raca.transform.position.z + 40) {
-			if(stetjeTrave >= 3){
+			if(stetjeTrave >= 5){
 				stetjeTrave=0;
 				stTrav++;
 				dodajElement(prviSiroka,travaSiroka);
