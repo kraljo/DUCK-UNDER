@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d3b6ee69a95a87a4ebf868624b5f19be
-timeCreated: 1440753983
+guid: 7e929e9894d10a14a9eb1986280dfa91
+timeCreated: 1442000730
 licenseType: Free
 PluginImporter:
   serializedVersion: 1
@@ -16,7 +16,7 @@ PluginImporter:
       enabled: 0
       settings: {}
     Editor:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
         DefaultValueInitialized: true
@@ -42,11 +42,11 @@ PluginImporter:
       settings:
         STV_MODEL: STANDARD_13
     WP8:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: AnyCPU
-        DontProcess: True
-        PlaceholderPath: Assets/plugins/UnityPluginForWindowsPhone.dll
+        DontProcess: False
+        PlaceholderPath: 
     Win:
       enabled: 0
       settings:
@@ -56,7 +56,7 @@ PluginImporter:
       settings:
         CPU: AnyCPU
     WindowsStoreApps:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
         DontProcess: False
