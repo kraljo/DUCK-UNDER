@@ -16,6 +16,9 @@ public class SlediRaciSkripta : MonoBehaviour {
 
 	Vector3 startPoz;
 
+    public GameObject youLost;
+    public GameObject pause;
+
     static bool reset = false;
 	void Start () {
 		startPoz = transform.position;
@@ -29,6 +32,10 @@ public class SlediRaciSkripta : MonoBehaviour {
         }
         kameraPoz = transform.position;
 		maxZ = transform.position.z;
+        youLost = GameObject.Find("YOULOST");
+        pause = GameObject.Find("PAUSE");
+        youLost.SetActive(false);
+        pause.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -57,28 +64,29 @@ public class SlediRaciSkripta : MonoBehaviour {
 				}
 			}
 		}
-        if (reset)
-        {
-
-            reset = false;
-            Reset2();
-        }
-	}
-
-	public void Reset2(){
-		transform.position = startPoz;
-        if(gameObject.GetComponent<Camera>())
-		    kamera = gameObject.GetComponent<Camera> ();
-		stalni = raca.transform.position - transform.position;
-		poX = transform.position;
         
-        kameraPoz = transform.position;
-		maxZ = transform.position.z;
-
 	}
 
-    public static void Reset()
+
+    public void Reset()
     {
-        reset = true;
+        transform.position = startPoz;
+        if (gameObject.GetComponent<Camera>())
+            kamera = gameObject.GetComponent<Camera>();
+        stalni = raca.transform.position - transform.position;
+        poX = transform.position;
+
+        kameraPoz = transform.position;
+        maxZ = transform.position.z;
+        youLost.GetComponent<postaviNazajSkripta>().Reset();
+        pause.GetComponent<postaviNazajSkripta>().Reset();
+        youLost.SetActive(false);
+        pause.SetActive(false);
+    }
+
+    public void youLostShow()
+    {
+        youLost.SetActive(true);
+
     }
 }

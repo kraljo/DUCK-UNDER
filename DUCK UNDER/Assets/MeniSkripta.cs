@@ -97,6 +97,7 @@ public class MeniSkripta : MonoBehaviour {
 			leaderSkripta.saveScore=true;
 			bestScore.text = Mathf.RoundToInt(tocke)+"";
 		}
+        kamera.GetComponent<SlediRaciSkripta>().youLostShow();
 	}
 
 	public void logIN(){

@@ -141,7 +141,7 @@ public class RackaSkripta : MonoBehaviour {
 		povozena.SetActive (false);
 		teren.pobrisiVse ();
 		transform.position = startPoz;
-		SlediRaciSkripta.Reset ();
+		kamera.Reset ();
 		meni.play ();
 		postaviOtroke ();
 		orkan.Reset ();
