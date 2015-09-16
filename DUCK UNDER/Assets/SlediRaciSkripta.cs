@@ -15,12 +15,19 @@ public class SlediRaciSkripta : MonoBehaviour {
 	Vector3 kameraPoz;
 
 	Vector3 startPoz;
+
+    static bool reset = false;
 	void Start () {
 		startPoz = transform.position;
-		kamera = gameObject.GetComponent<Camera> ();
+        
+		
 		stalni = raca.transform.position - transform.position;
 		poX = transform.position;
-		kameraPoz = transform.position;
+        if (gameObject.GetComponent<Camera>() != null)
+        {
+            kamera = gameObject.GetComponent<Camera>();
+        }
+        kameraPoz = transform.position;
 		maxZ = transform.position.z;
 	}
 	
@@ -50,15 +57,28 @@ public class SlediRaciSkripta : MonoBehaviour {
 				}
 			}
 		}
+        if (reset)
+        {
+
+            reset = false;
+            Reset2();
+        }
 	}
 
-	public void Reset(){
+	public void Reset2(){
 		transform.position = startPoz;
-		kamera = gameObject.GetComponent<Camera> ();
+        if(gameObject.GetComponent<Camera>())
+		    kamera = gameObject.GetComponent<Camera> ();
 		stalni = raca.transform.position - transform.position;
 		poX = transform.position;
-		kameraPoz = transform.position;
+        
+        kameraPoz = transform.position;
 		maxZ = transform.position.z;
 
 	}
+
+    public static void Reset()
+    {
+        reset = true;
+    }
 }
