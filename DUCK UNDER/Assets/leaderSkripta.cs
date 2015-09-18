@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using com.shephertz.app42.paas.sdk.csharp;    
-using com.shephertz.app42.paas.sdk.csharp.user;
+//using com.shephertz.app42.paas.sdk.csharp;    
+//using com.shephertz.app42.paas.sdk.csharp.user;
 using System;
-using com.shephertz.app42.paas.sdk.csharp.game;
+//using com.shephertz.app42.paas.sdk.csharp.game;
 using UnityEngine.UI;   
 
 
@@ -28,6 +28,7 @@ public class leaderSkripta : MonoBehaviour {
 	public static string recivedUser=null;
 	public static string recivedScore=null;
 	// Use this for initialization
+    /*
 	void Start () {
 		App42API.Initialize("736be5b089d7a57faec17da1d621505c73830242c621c3774408faec99e8ac8b","5decc0b3dcc5bebe463539aa70b082b836d0d42a8d2ed6f43f7e66ce85a42176");  
 
@@ -74,11 +75,11 @@ public class leaderSkripta : MonoBehaviour {
 			getUserRank=true;
 		}
 	
-	}
+	}*/
 
 
 }
-
+/*
 public class UnityCallBackCreateUser : App42CallBack  
 {  
 	public void OnSuccess(object response)  
@@ -161,4 +162,4 @@ public class UnityCallBackGetTopRanks : App42CallBack
 	{  
 		App42Log.Console("Exception : " + e);  
 	}  
-}  
+}  */

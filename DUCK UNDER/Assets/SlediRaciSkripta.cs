@@ -19,7 +19,6 @@ public class SlediRaciSkripta : MonoBehaviour {
     public GameObject youLost;
     public GameObject pause;
 
-    static bool reset = false;
 	void Start () {
 		startPoz = transform.position;
         

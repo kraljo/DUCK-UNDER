@@ -13,11 +13,11 @@ public class OtrokSkripta : MonoBehaviour {
 
 	public bool povozena=false;
 	GameObject povozenOtrok;
-	AudioSkripta audio;
+	AudioSkripta audio2;
 	void Awake(){
 		povozenOtrok = Instantiate (povozenaRaca) as GameObject;
 		povozenOtrok.SetActive (false);
-		audio = GameObject.Find("Audio").GetComponent<AudioSkripta>();
+		audio2 = GameObject.Find("Audio").GetComponent<AudioSkripta>();
 	}
 	void Start () {
 		smer = Vector3.zero;
@@ -52,7 +52,7 @@ public class OtrokSkripta : MonoBehaviour {
 				povozenOtrok.transform.position = transform.position;
 				povozenOtrok.transform.rotation = transform.rotation;
 				povozenOtrok.SetActive(true);
-				audio.povozi();
+				audio2.povozi();
 				gameObject.SetActive(false);
 			}
 		} 

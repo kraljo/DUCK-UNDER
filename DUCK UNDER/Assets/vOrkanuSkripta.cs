@@ -10,7 +10,7 @@ public class vOrkanuSkripta : MonoBehaviour {
 	public bool enable=true;
 
 	Vector3 smer = Vector3.up;
-	Transform orkan=null;
+
 	public void StartOrkan (Vector3 pos, Quaternion rot, GameObject stars) {
 
 			//transform.Rotate (kot, 0, 0);

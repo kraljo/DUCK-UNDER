@@ -11,7 +11,7 @@ public class PostaviElementeSkripta : MonoBehaviour {
 
 	public GameObject nazaj;
 	Bounds bounds;
-	List<bool> list;
+
 	GameObject[] tabela;
 	void Start () {
 		tabela = new GameObject[3];

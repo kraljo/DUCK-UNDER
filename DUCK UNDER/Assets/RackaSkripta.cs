@@ -17,8 +17,7 @@ public class RackaSkripta : MonoBehaviour {
 
 	public static int stRack=10;
 	Vector3 smer;
-	Vector3 rotacija;
-	float premik;
+
 	GameObject valovi;
 	GameObject povozena;
 	public GameObject[] tocke;
@@ -54,7 +53,6 @@ public class RackaSkripta : MonoBehaviour {
 
 	void Start () {
 
-		rotacija = Vector3.zero;
 		valovi = transform.FindChild ("valovi").gameObject;
 
 	}

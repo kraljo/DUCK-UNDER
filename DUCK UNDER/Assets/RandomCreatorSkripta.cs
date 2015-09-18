@@ -45,7 +45,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	GameObject Kmetija;
 	Vector3 vec;
 	List<GameObject> list;
-	int brisi=0;
+
 	int stetjeTrave =0;
 	int stTrav=0;
 

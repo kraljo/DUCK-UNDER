@@ -11,7 +11,7 @@ public class SkriptaPotujNaprej : MonoBehaviour {
 	public float size=0;
 	public float zamik;
 
-	float casNastanka;
+
 	void Start () {
 		Transform sence = transform.FindChild ("SENCE");
 		if (sence) {
