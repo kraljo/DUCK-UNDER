@@ -18,6 +18,8 @@ public class SlediRaciSkripta : MonoBehaviour {
 
     public GameObject youLost;
     public GameObject pause;
+    public GameObject unicevalka;
+    public RandomCreatorSkripta mapCreator;
 
 	void Start () {
 		startPoz = transform.position;
@@ -53,7 +55,7 @@ public class SlediRaciSkripta : MonoBehaviour {
 			Debug.DrawRay(transform.position, transform.forward, Color.green);
 			
 			RaycastHit[] hit;
-			hit = Physics.RaycastAll (ray);
+			hit = Physics.RaycastAll(ray);
 			MeniSkripta.stejTocke=true;
 			for (int i=0; i < hit.Length; i++) {
 
@@ -62,7 +64,29 @@ public class SlediRaciSkripta : MonoBehaviour {
 					break;
 				}
 			}
-		}
+
+            hit = Physics.RaycastAll(Camera.main.ViewportPointToRay(new Vector3(0, 1, 0)));
+            for(int i=0; i < hit.Length; i++)
+            {
+                if (hit.Length < 2)
+                {
+                    Debug.Log(hit[i].collider.gameObject.tag + "top left");
+                    mapCreator.dodajNoviElement();
+                }
+                
+            }
+
+            hit = Physics.RaycastAll(Camera.main.ViewportPointToRay(new Vector3(1, 0, 0)));
+            for (int i = 0; i < hit.Length; i++)
+            {
+                if (hit[i].point != null && (hit[i].collider.gameObject.CompareTag("siroka") || hit[i].collider.gameObject.CompareTag("tla")))
+                {
+                    Debug.Log(hit[i].collider.gameObject.tag + "bot right");
+                    unicevalka.transform.position = hit[i].point;
+                }
+
+            }
+        }
         
 	}
 

@@ -14,6 +14,8 @@ public class OtrokSkripta : MonoBehaviour {
 	public bool povozena=false;
 	GameObject povozenOtrok;
 	AudioSkripta audio2;
+
+    GameObject raca;
 	void Awake(){
 		povozenOtrok = Instantiate (povozenaRaca) as GameObject;
 		povozenOtrok.SetActive (false);
@@ -23,22 +25,23 @@ public class OtrokSkripta : MonoBehaviour {
 		smer = Vector3.zero;
 		if(zasleduj)
 			zasleduj.GetComponent<ZasledujeMeSkripta> ().ZasledujeMe = gameObject;
+        raca = GameObject.Find("raca");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (zasleduj) {
 
-			smer = zasleduj.transform.position - transform.position;
+			smer = raca.transform.position;
+            smer.y = transform.position.y;
 			float step = speed*Time.deltaTime;
 
-			Vector3 newDir = Vector3.RotateTowards(transform.forward,smer,60,0.0f);
+			Vector3 newDir = Vector3.RotateTowards(transform.position,smer,60,1.0f);
 			transform.rotation = Quaternion.LookRotation(newDir);
-			if(Vector3.Distance(transform.position,zasleduj.transform.position) > 0.1f){
-				transform.position += transform.forward * step;
-			}else{
-				//transform.RotateAround (zasleduj.transform.position, Vector3.up, 60 * Time.deltaTime);
-			}
+            
+            Vector3 pos = Vector3.MoveTowards(transform.position,zasleduj.transform.position,step);
+            pos.y = transform.position.y;
+            transform.position = pos;
 		}
 	}
 

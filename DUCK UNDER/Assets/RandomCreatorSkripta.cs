@@ -197,10 +197,10 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	void Update () {
 		Debug.Log (nalozeno + " nalozilo");
 		if (nalozeno == 23) {
-			StartPostavitev();
+			//StartPostavitev();
 			nalozeno++;
 		}
-
+        /*
 		if (raca && vDelovanju && list[list.Count-1].transform.position.z < raca.transform.position.z + 40) {
 			if(stetjeTrave >= 5){
 				stetjeTrave=0;
@@ -236,7 +236,8 @@ public class RandomCreatorSkripta : MonoBehaviour {
 			//Destroy(list[brisi++]);
 			}
 
-		}
+		}*/
+        /*
 		Debug.Log (list [0].transform.position.z);
 		if (raca && vDelovanju && list[0].transform.position.z < raca.transform.position.z - 40) {
 			GameObject brisem = list[0];
@@ -265,7 +266,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 			}
 			brisem.SetActive(false);
 			list.RemoveAt(0);
-		}
+		}*/
 	}
 
 	void dodajElement(GameObject spawn, GameObject spawnTabela){
@@ -342,4 +343,94 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	public GameObject vrniRandomVozilo(){
 		return randomVozilo.vrniVozilo ();
 	}
+
+    public void pobrisiZadnjega()
+    {
+        GameObject brisem = list[0];
+        Debug.Log("prisem primerek");
+        string id = brisem.GetComponent<nazajSkripta>().id;
+
+        if (id.Equals("cesta"))
+        {
+            brisem.GetComponent<izberiSpawnSkripta>().pobrisiVozila();
+            zadnjiCesta.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiCesta = brisem;
+
+        }
+        else if (id.Equals("zeleznica"))
+        {
+            zadnjiZeleznica.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiZeleznica = brisem;
+        }
+        else if (id.Equals("siroka"))
+        {
+            zadnjiSiroka.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiSiroka = brisem;
+            brisem.GetComponent<SirokaRandomSkripta>().reset();
+
+        }
+        else if (id.Equals("trava"))
+        {
+            zadnjiTrava.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiTrava = brisem;
+        }
+        else if (id.Equals("crte"))
+        {
+            zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiCrte = brisem;
+        }
+        brisem.SetActive(false);
+        list.RemoveAt(0);
+
+    }
+
+    public void dodajNoviElement()
+    {
+        if (stetjeTrave >= 5)
+        {
+            stetjeTrave = 0;
+            stTrav++;
+            dodajElement(prviSiroka, travaSiroka);
+            prejsni = travaSiroka;
+        }
+        else
+        {
+            GameObject spawn = tabela[Random.Range(0, tabela.Length)];
+            stetjeTrave++;
+            if (spawn == prejsni && spawn == travaSiroka)
+            {
+                spawn = cesta;
+            }
+            if (prejsni == spawn && spawn == cesta)
+            {
+                dodajElement(prviCrte, crte);
+
+            }
+            else if (prejsni == spawn && spawn == zeleznica)
+            {
+                dodajElement(prviTrava, trava);
+
+            }
+            else if (prejsni != travaSiroka && prejsni != spawn && spawn != travaSiroka)
+            {
+                dodajElement(prviTrava, trava);
+            }
+
+            if (spawn == cesta)
+            {
+                dodajElement(prviCesta, spawn);
+            }
+            else if (spawn == zeleznica)
+            {
+                dodajElement(prviZeleznica, spawn);
+
+            }
+            else
+            { //if(spawn == travaSiroka){
+                dodajElement(prviSiroka, spawn);
+            }
+            prejsni = spawn;
+            //Destroy(list[brisi++]);
+        }
+    }
 }

@@ -12,4 +12,6 @@ public class nazajSkripta : MonoBehaviour {
 		//gameObject.SetActive (false);
 
 	}
+
+    
 }
