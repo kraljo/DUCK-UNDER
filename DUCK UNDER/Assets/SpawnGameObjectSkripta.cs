@@ -94,7 +94,7 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 		float vsota = 0;
 		for (int i=0; i < 3; i++) {
 			GameObject zac = prvi;
-			vsota = i * vrniZamik(zac);
+			vsota += vrniZamik(zac);
 
 			zac.GetComponent<SkriptaPotujNaprej>().speed=speed;
 			zac.transform.localPosition = zac.GetComponent<SkriptaPotujNaprej>().pozicija;
