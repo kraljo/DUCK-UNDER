@@ -16,12 +16,15 @@ public class spawnVlakSkripta : MonoBehaviour {
 	
 	GameObject prvi;
 	public GameObject zadnji;
-	
-	void Awake(){
-		
-		//transform.position += transform.forward * Random.Range (-zamik/2, zamik/2);
+    int nalozeniAvti = 0;
+    int stAvtov = 12;
 
-	}
+    void Awake(){
+        
+        stAvtov = transform.parent.gameObject.GetComponent<izberiSpawnSkripta>().stAvtov;
+        //transform.position += transform.forward * Random.Range (-zamik/2, zamik/2);
+
+    }
 	
 	void Start () {
 		terminator = transform.FindChild ("terminator").GetComponent<Collider> ();
@@ -36,7 +39,7 @@ public class spawnVlakSkripta : MonoBehaviour {
 		zacasna.GetComponent<SkriptaPotujNaprej>().pozicija = zacasna.transform.localPosition;
 		zacasna.SetActive(false);
 		
-		for (int i=0; i < 3; i++) {
+		for (int i=0; i < stAvtov; i++) {
 			GameObject vozilo = Instantiate(objekt) as GameObject;
 			Physics.IgnoreCollision(vozilo.GetComponent<Collider>(), terminator);
 			vozilo.transform.rotation = transform.rotation;
@@ -47,13 +50,12 @@ public class spawnVlakSkripta : MonoBehaviour {
 			zacasna.GetComponent<SkriptaPotujNaprej>().nazaj = vozilo;
 			zacasna = vozilo;
 			zadnji = zacasna;
-			zacasna.SetActive(false);
+			
 		}
 		
 		postaviVozila ();
 		cas = vrniCas();
-		RandomCreatorSkripta.nalozeno++;
-		transform.parent.gameObject.SetActive (false);
+		
 	}
 	
 	// Update is called once per frame

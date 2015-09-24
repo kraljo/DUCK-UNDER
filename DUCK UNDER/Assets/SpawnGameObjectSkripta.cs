@@ -20,8 +20,12 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 
 	float prejsni;
 
+    int nalozeniAvti = 0;
+    int stAvtov = 12;
+
 	void Awake(){
 		prejsni = 0;
+        stAvtov = transform.parent.gameObject.GetComponent<izberiSpawnSkripta>().stAvtov;
 	}
 
 
@@ -43,7 +47,7 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 		zacasna.GetComponent<SkriptaPotujNaprej>().speed = speed;
 		zacasna.GetComponent<SkriptaPotujNaprej>().pozicija = zacasna.transform.localPosition;
 		zacasna.SetActive(false);
-		for (int i=0; i < 12; i++) {
+		for (int i=0; i < stAvtov; i++) {
 			GameObject vozilo = Instantiate(mapCreator.vrniRandomVozilo()) as GameObject;
 			Physics.IgnoreCollision(vozilo.GetComponent<Collider>(), terminator);
 			vozilo.transform.rotation = transform.rotation;
@@ -54,14 +58,13 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 			zacasna.GetComponent<SkriptaPotujNaprej>().nazaj = vozilo;
 			zacasna = vozilo;
 			//zadnji = zacasna;
-			zacasna.SetActive(false);
+			//zacasna.SetActive(false);
 		}
 		zacasna.GetComponent<SkriptaPotujNaprej> ().nazaj = prvi;
 		//postaviVozila ();
 		//cas = vrniZamik(prvi) / speed;
 		//cas = 4;
-		RandomCreatorSkripta.nalozeno++;
-		transform.parent.gameObject.SetActive (false);
+		
 		Debug.Log ("set active");
 	}
 	

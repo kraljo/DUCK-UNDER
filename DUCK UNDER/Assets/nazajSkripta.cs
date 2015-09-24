@@ -10,6 +10,10 @@ public class nazajSkripta : MonoBehaviour {
 
 	void Start(){
 		//gameObject.SetActive (false);
+        if(id.Equals("trava") || id.Equals("crte"))
+        {
+            gameObject.SetActive(false);
+        }
 
 	}
 

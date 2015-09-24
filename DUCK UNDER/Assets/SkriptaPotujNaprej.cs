@@ -21,6 +21,18 @@ public class SkriptaPotujNaprej : MonoBehaviour {
 				sence.FindChild("GOR").gameObject.SetActive(false);
 			}
 		}
+        int i = ++transform.parent.gameObject.GetComponent<izberiSpawnSkripta>().nalozeniAvti;
+        if(i == transform.parent.gameObject.GetComponent<izberiSpawnSkripta>().stAvtov)
+        {
+            RandomCreatorSkripta.nalozeno++;
+            gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+        
 	}
 	
 	// Update is called once per frame

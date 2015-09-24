@@ -6,7 +6,10 @@ public class izberiSpawnSkripta : MonoBehaviour {
 	// Use this for initialization
 	public GameObject nazaj;
 	int izbira;
-	void Awake(){
+
+    public int stAvtov = 12;
+    public int nalozeniAvti = 0;
+    void Awake(){
 
 		SpawnGameObjectSkripta[] spawn1 = GetComponentsInChildren<SpawnGameObjectSkripta> ();
 		if (spawn1.Length > 0) {

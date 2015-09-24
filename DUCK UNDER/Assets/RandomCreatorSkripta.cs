@@ -125,14 +125,14 @@ public class RandomCreatorSkripta : MonoBehaviour {
 		prviCrte = Instantiate (crte) as GameObject;
 		prviCrte.transform.SetParent (transform);
 		GameObject zacasna4 = prviCrte;
-		zacasna4.SetActive (false);
+		//zacasna4.SetActive (false);
 		for (int i=0; i < 10; i++) {
 			GameObject inst = Instantiate(crte) as GameObject;
 			zacasna4.GetComponent<nazajSkripta>().nazaj = inst;
 			zacasna4.GetComponent<nazajSkripta>().id = "crte";
 			inst.transform.SetParent(transform);
 			zacasna4 = inst;
-			zacasna4.SetActive (false);
+			//zacasna4.SetActive (false);
 		}
 		zacasna4.GetComponent<nazajSkripta>().id = "crte";
 		zadnjiCrte = zacasna4;
@@ -140,14 +140,14 @@ public class RandomCreatorSkripta : MonoBehaviour {
 		prviTrava = Instantiate (trava) as GameObject;
 		prviTrava.transform.SetParent (transform);
 		GameObject zacasna5 = prviTrava;
-		zacasna5.SetActive (false);
+		//zacasna5.SetActive (false);
 		for (int i=0; i < 10; i++) {
 			GameObject inst = Instantiate(trava) as GameObject;
 			zacasna5.GetComponent<nazajSkripta>().nazaj = inst;
 			zacasna5.GetComponent<nazajSkripta>().id = "trava";
 			inst.transform.SetParent(transform);
 			zacasna5 = inst;
-			zacasna5.SetActive (false);
+			//zacasna5.SetActive (false);
 		}
 		zacasna5.GetComponent<nazajSkripta>().id = "trava";
 		zadnjiTrava = zacasna5;
