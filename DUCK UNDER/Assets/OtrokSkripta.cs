@@ -18,7 +18,7 @@ public class OtrokSkripta : MonoBehaviour {
     GameObject raca;
 	void Awake(){
 		povozenOtrok = Instantiate (povozenaRaca) as GameObject;
-		povozenOtrok.SetActive (false);
+		//povozenOtrok.SetActive (false);
 		audio2 = GameObject.Find("Audio").GetComponent<AudioSkripta>();
 	}
 	void Start () {

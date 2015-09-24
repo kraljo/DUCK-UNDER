@@ -48,7 +48,7 @@ public class RackaSkripta : MonoBehaviour {
 		startPoz = transform.position;
 		postaviOtroke ();
 		povozena = Instantiate (povozenaRaca) as GameObject;
-		povozena.SetActive (false);
+		//povozena.SetActive (false);
 	}
 
 	void Start () {
