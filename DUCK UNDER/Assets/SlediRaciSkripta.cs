@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SlediRaciSkripta : MonoBehaviour {
 
-	// Use this for initialization
+	// Use this for initializationssssss
 	public static Camera kamera;
 	public GameObject raca;
 	public float gorDol;
