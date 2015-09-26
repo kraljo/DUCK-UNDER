@@ -18,6 +18,10 @@ public class MeniSkripta : MonoBehaviour {
 	public Text Score;
 	public Text stRack;
 	public Text userRankText;
+
+    public Text bestMenu;
+    public Text bestLost;
+    public Text scoreLost;
 	
 	public Text[] imeR;
 	public Text[] scoreR;
@@ -36,8 +40,9 @@ public class MeniSkripta : MonoBehaviour {
 		raca = GameObject.Find ("raca");
 	}
 	void Start () {
-		bestScore.text = PlayerPrefs.GetInt ("score")+"";
-	}
+		bestScore.text = "BEST: "+PlayerPrefs.GetInt ("score")+"";
+        bestMenu.text = "BEST: "+PlayerPrefs.GetInt("score") + "";
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,7 +52,7 @@ public class MeniSkripta : MonoBehaviour {
 		}
 		deltaTocke = kamera.transform.position.z;
 
-		Score.text = Mathf.RoundToInt (tocke)+"";
+		Score.text = "POINTS: "+Mathf.RoundToInt (tocke)+"";
 		if (leader.activeSelf) {
 			if(PlayerPrefs.HasKey("rank"))
 				userRankText.text=PlayerPrefs.GetInt("rank")+"";
@@ -98,7 +103,9 @@ public class MeniSkripta : MonoBehaviour {
 			bestScore.text = Mathf.RoundToInt(tocke)+"";
 		}
         kamera.GetComponent<SlediRaciSkripta>().youLostShow();
-	}
+        bestLost.text = "BEST: "+PlayerPrefs.GetInt("score") + "";
+        scoreLost.text = Score.text;
+    }
 
 	public void logIN(){
 		if (input.text.Length >= 3) {
