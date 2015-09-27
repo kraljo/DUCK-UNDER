@@ -16,8 +16,8 @@ public class SlediRaciSkripta : MonoBehaviour {
 
 	Vector3 startPoz;
 
-    public GameObject youLost;
-    public GameObject pause;
+    //public GameObject youLost;
+    //public GameObject pause;
     public GameObject unicevalka;
     public RandomCreatorSkripta mapCreator;
 
@@ -33,10 +33,10 @@ public class SlediRaciSkripta : MonoBehaviour {
         }
         kameraPoz = transform.position;
 		maxZ = transform.position.z;
-        youLost = GameObject.Find("YOULOST");
-        pause = GameObject.Find("PAUSE");
-        youLost.SetActive(false);
-        pause.SetActive(false);
+        //youLost = GameObject.Find("YOULOST");
+        //pause = GameObject.Find("PAUSE");
+       // youLost.SetActive(false);
+        //pause.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -101,15 +101,15 @@ public class SlediRaciSkripta : MonoBehaviour {
 
         kameraPoz = transform.position;
         maxZ = transform.position.z;
-        youLost.GetComponent<postaviNazajSkripta>().Reset();
-        pause.GetComponent<postaviNazajSkripta>().Reset();
-        youLost.SetActive(false);
-        pause.SetActive(false);
+        //youLost.GetComponent<postaviNazajSkripta>().Reset();
+        //pause.GetComponent<postaviNazajSkripta>().Reset();
+        //youLost.SetActive(false);
+       // pause.SetActive(false);
     }
 
     public void youLostShow()
     {
-        youLost.SetActive(true);
+        //youLost.SetActive(true);
 
     }
 }
