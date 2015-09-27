@@ -70,7 +70,9 @@ public class InputKey : MonoBehaviour {
 
 
 			}
-		}
+
+            
+        }
 	}
 
 	public void Zvok(){

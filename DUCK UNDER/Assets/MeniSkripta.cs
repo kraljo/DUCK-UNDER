@@ -40,7 +40,7 @@ public class MeniSkripta : MonoBehaviour {
 		raca = GameObject.Find ("raca");
 	}
 	void Start () {
-		bestScore.text = "BEST: "+PlayerPrefs.GetInt ("score")+"";
+		bestScore.text = PlayerPrefs.GetInt ("score")+"";
         bestMenu.text = "BEST: "+PlayerPrefs.GetInt("score") + "";
     }
 	
@@ -52,7 +52,7 @@ public class MeniSkripta : MonoBehaviour {
 		}
 		deltaTocke = kamera.transform.position.z;
 
-		Score.text = "POINTS: "+Mathf.RoundToInt (tocke)+"";
+		Score.text = Mathf.RoundToInt (tocke)+"";
 		if (leader.activeSelf) {
 			if(PlayerPrefs.HasKey("rank"))
 				userRankText.text=PlayerPrefs.GetInt("rank")+"";
@@ -104,7 +104,7 @@ public class MeniSkripta : MonoBehaviour {
 		}
         kamera.GetComponent<SlediRaciSkripta>().youLostShow();
         bestLost.text = "BEST: "+PlayerPrefs.GetInt("score") + "";
-        scoreLost.text = Score.text;
+        scoreLost.text = "POINTS: "+Mathf.RoundToInt(tocke);
     }
 
 	public void logIN(){

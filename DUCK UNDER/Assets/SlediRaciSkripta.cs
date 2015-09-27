@@ -87,8 +87,40 @@ public class SlediRaciSkripta : MonoBehaviour {
 
             }
         }
-        
-	}
+
+        if ((Input.deviceOrientation == DeviceOrientation.Portrait) && (Screen.orientation != ScreenOrientation.Portrait))
+        {
+            Screen.orientation = ScreenOrientation.Portrait;
+            portret();
+        }
+        else if ((Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown) && (Screen.orientation != ScreenOrientation.PortraitUpsideDown))
+        {
+            Screen.orientation = ScreenOrientation.PortraitUpsideDown;
+            portret();
+        }
+        else if ((Input.deviceOrientation == DeviceOrientation.LandscapeLeft) && (Screen.orientation != ScreenOrientation.LandscapeLeft))
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            ladscape();
+            
+        }
+        else if ((Input.deviceOrientation == DeviceOrientation.LandscapeRight) && (Screen.orientation != ScreenOrientation.LandscapeRight))
+        {
+            Screen.orientation = ScreenOrientation.LandscapeRight;
+            ladscape();
+        }
+
+        if(ScreenOrientation.Portrait == Screen.orientation)
+        {
+            portret();
+            Debug.Log("portret");
+        }
+        else
+        {
+            ladscape();
+            Debug.Log("landscape");
+        }
+    }
 
 
     public void Reset()
@@ -111,5 +143,18 @@ public class SlediRaciSkripta : MonoBehaviour {
     {
         //youLost.SetActive(true);
 
+    }
+
+    void ladscape()
+    {
+        kamera.fieldOfView = 54;
+        transform.rotation = Quaternion.Euler(66,90,0);
+        
+    }
+
+    void portret()
+    {
+        kamera.fieldOfView = 63;
+        transform.rotation = Quaternion.Euler(54, 70, 0);
     }
 }
