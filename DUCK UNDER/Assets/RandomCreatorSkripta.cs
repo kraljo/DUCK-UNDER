@@ -40,6 +40,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 
 
 	public static int nalozeno=0;
+    public static GameObject[] zadnjihX;
 	GameObject prejsni;
 	GameObject[] tabela;
 	GameObject Kmetija;
@@ -55,6 +56,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	RandomVoziloSkripta randomVozilo;
 
 	void Awake(){
+        zadnjihX = new GameObject[5];
 		int skupaj = verCesta + verZeleznica;
 		int sestevek = 0;
 		randomVozilo = transform.FindChild ("randomVozilo").GetComponent<RandomVoziloSkripta>();
@@ -380,6 +382,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
             zadnjiCrte = brisem;
         }
         brisem.SetActive(false);
+        //addZadnjih(brisem);
         list.RemoveAt(0);
 
     }
@@ -432,5 +435,14 @@ public class RandomCreatorSkripta : MonoBehaviour {
             prejsni = spawn;
             //Destroy(list[brisi++]);
         }
+    }
+
+    public void addZadnjih(GameObject brisem)
+    {
+        for(int i= zadnjihX.Length-1; i > 0; i--)
+        {
+            zadnjihX[i] = zadnjihX[i - 1];
+        }
+        zadnjihX[0] = brisem;
     }
 }

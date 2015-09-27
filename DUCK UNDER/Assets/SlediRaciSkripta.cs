@@ -97,6 +97,7 @@ public class SlediRaciSkripta : MonoBehaviour {
         {
             Screen.orientation = ScreenOrientation.PortraitUpsideDown;
             portret();
+           
         }
         else if ((Input.deviceOrientation == DeviceOrientation.LandscapeLeft) && (Screen.orientation != ScreenOrientation.LandscapeLeft))
         {
@@ -149,12 +150,25 @@ public class SlediRaciSkripta : MonoBehaviour {
     {
         kamera.fieldOfView = 54;
         transform.rotation = Quaternion.Euler(66,90,0);
-        
+        postaviPobrisane();
+
     }
 
     void portret()
     {
         kamera.fieldOfView = 63;
         transform.rotation = Quaternion.Euler(54, 70, 0);
+        postaviPobrisane();
+    }
+
+    void postaviPobrisane()
+    {
+        for(int i=0; i < RandomCreatorSkripta.zadnjihX.Length; i++)
+        {
+            if(RandomCreatorSkripta.zadnjihX[i] != null)
+            {
+                RandomCreatorSkripta.zadnjihX[i].SetActive(true);
+            }
+        }
     }
 }
