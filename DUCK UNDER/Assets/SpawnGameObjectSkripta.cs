@@ -95,6 +95,7 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 
 	public void postaviVozila(){
 		float vsota = 0;
+        
 		for (int i=0; i < 3; i++) {
 			GameObject zac = prvi;
 			vsota += vrniZamik(zac);
@@ -102,12 +103,13 @@ public class SpawnGameObjectSkripta : MonoBehaviour {
 			zac.GetComponent<SkriptaPotujNaprej>().speed=speed;
 			zac.transform.localPosition = zac.GetComponent<SkriptaPotujNaprej>().pozicija;
 			zac.transform.position += transform.forward*vsota;
-
-			prvi = zac.GetComponent<SkriptaPotujNaprej>().nazaj;
-			zac.SetActive(true);
+            
+            prvi = zac.GetComponent<SkriptaPotujNaprej>().nazaj;
+			
 			Physics.IgnoreCollision(zac.GetComponent<Collider>(), terminator);
-			//zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
-			cas = vrniZamik(prvi) / speed;
+            zac.SetActive(true);
+            //zac.GetComponent<SkriptaPotujNaprej>().nazaj=null;
+            cas = vrniZamik(prvi) / speed;
 
 		}
 	}

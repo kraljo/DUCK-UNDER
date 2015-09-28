@@ -15,9 +15,8 @@ public class SlediRaciSkripta : MonoBehaviour {
 	Vector3 kameraPoz;
 
 	Vector3 startPoz;
+    int ekran = 0;
 
-    //public GameObject youLost;
-    //public GameObject pause;
     public GameObject unicevalka;
     public RandomCreatorSkripta mapCreator;
 
@@ -33,11 +32,15 @@ public class SlediRaciSkripta : MonoBehaviour {
         }
         kameraPoz = transform.position;
 		maxZ = transform.position.z;
-        //youLost = GameObject.Find("YOULOST");
-        //pause = GameObject.Find("PAUSE");
-       // youLost.SetActive(false);
-        //pause.SetActive(false);
-	}
+        if (ScreenOrientation.Portrait == Screen.orientation)
+        {
+            ekran = 1;
+        }
+        else
+        {
+            ekran = 2;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -88,38 +91,21 @@ public class SlediRaciSkripta : MonoBehaviour {
             }
         }
 
-        if ((Input.deviceOrientation == DeviceOrientation.Portrait) && (Screen.orientation != ScreenOrientation.Portrait))
-        {
-            Screen.orientation = ScreenOrientation.Portrait;
-            portret();
-        }
-        else if ((Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown) && (Screen.orientation != ScreenOrientation.PortraitUpsideDown))
-        {
-            Screen.orientation = ScreenOrientation.PortraitUpsideDown;
-            portret();
-           
-        }
-        else if ((Input.deviceOrientation == DeviceOrientation.LandscapeLeft) && (Screen.orientation != ScreenOrientation.LandscapeLeft))
-        {
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-            ladscape();
-            
-        }
-        else if ((Input.deviceOrientation == DeviceOrientation.LandscapeRight) && (Screen.orientation != ScreenOrientation.LandscapeRight))
-        {
-            Screen.orientation = ScreenOrientation.LandscapeRight;
-            ladscape();
-        }
-
         if(ScreenOrientation.Portrait == Screen.orientation)
         {
-            portret();
-            Debug.Log("portret");
+            if(ekran == 2)
+            {
+                portret();
+                ekran = 1;
+            }
         }
         else
         {
-            ladscape();
-            Debug.Log("landscape");
+            if(ekran == 1)
+            {
+                ladscape();
+                ekran = 2;
+            }
         }
     }
 
@@ -134,15 +120,11 @@ public class SlediRaciSkripta : MonoBehaviour {
 
         kameraPoz = transform.position;
         maxZ = transform.position.z;
-        //youLost.GetComponent<postaviNazajSkripta>().Reset();
-        //pause.GetComponent<postaviNazajSkripta>().Reset();
-        //youLost.SetActive(false);
-       // pause.SetActive(false);
     }
 
     public void youLostShow()
     {
-        //youLost.SetActive(true);
+
 
     }
 

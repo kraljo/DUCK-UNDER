@@ -8,6 +8,8 @@ public class nazajSkripta : MonoBehaviour {
 
 	public string id;
 
+    public bool izbrisana = true;
+
 	void Start(){
 		//gameObject.SetActive (false);
         if(id.Equals("trava") || id.Equals("crte"))
