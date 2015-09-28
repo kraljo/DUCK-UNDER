@@ -17,6 +17,7 @@ public class posliIzbrisSkripta : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("unicevalka"))
         {
+            
             other.gameObject.GetComponent<unicevalkaSkripta>().pobrisiZadnjega();
         }
 
