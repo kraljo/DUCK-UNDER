@@ -104,7 +104,7 @@ public class MeniSkripta : MonoBehaviour {
 		}
         kamera.GetComponent<SlediRaciSkripta>().youLostShow();
         bestLost.text = "BEST: "+PlayerPrefs.GetInt("score") + "";
-        scoreLost.text = "POINTS: "+Mathf.RoundToInt(tocke);
+        scoreLost.text = "SCORE: "+Mathf.RoundToInt(tocke);
     }
 
 	public void logIN(){
