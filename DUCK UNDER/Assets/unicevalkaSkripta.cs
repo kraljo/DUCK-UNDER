@@ -17,8 +17,8 @@ public class unicevalkaSkripta : MonoBehaviour {
 
    
 
-    public void pobrisiZadnjega()
+    public void pobrisiZadnjega(GameObject objekt)
     {
-        mapCreator.pobrisiZadnjega();
+        mapCreator.zaIzbrisatObjekt = objekt;
     }
 }

@@ -45,7 +45,7 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	GameObject[] tabela;
 	GameObject Kmetija;
 	Vector3 vec;
-	List<GameObject> list;
+	public List<GameObject> list;
 
 	int stetjeTrave =0;
 	int stTrav=0;
@@ -54,8 +54,8 @@ public class RandomCreatorSkripta : MonoBehaviour {
 	bool vDelovanju=false;
 
 	RandomVoziloSkripta randomVozilo;
-
-	void Awake(){
+    public GameObject zaIzbrisatObjekt;
+    void Awake(){
         zadnjihX = new GameObject[5];
 		int skupaj = verCesta + verZeleznica;
 		int sestevek = 0;
@@ -202,73 +202,10 @@ public class RandomCreatorSkripta : MonoBehaviour {
 			//StartPostavitev();
 			nalozeno++;
 		}
-        /*
-		if (raca && vDelovanju && list[list.Count-1].transform.position.z < raca.transform.position.z + 40) {
-			if(stetjeTrave >= 5){
-				stetjeTrave=0;
-				stTrav++;
-				dodajElement(prviSiroka,travaSiroka);
-				prejsni = travaSiroka;
-			}else{
-				GameObject spawn = tabela[Random.Range(0,tabela.Length)];
-				stetjeTrave++;
-				if(spawn == prejsni && spawn == travaSiroka){
-					spawn = cesta;
-				}
-				if(prejsni == spawn && spawn == cesta){
-					dodajElement(prviCrte,crte);
-				
-				}else if(prejsni == spawn && spawn == zeleznica){
-					dodajElement(prviTrava,trava);
-					
-				}else if(prejsni != travaSiroka && prejsni != spawn && spawn != travaSiroka){
-					dodajElement(prviTrava,trava);
-				}
-
-				if(spawn == cesta){
-					dodajElement(prviCesta,spawn);
-				}
-				else if(spawn == zeleznica){
-					dodajElement(prviZeleznica,spawn);
-				
-				}else{ //if(spawn == travaSiroka){
-					dodajElement(prviSiroka,spawn);
-				}
-				prejsni = spawn;
-			//Destroy(list[brisi++]);
-			}
-
-		}*/
-        /*
-		Debug.Log (list [0].transform.position.z);
-		if (raca && vDelovanju && list[0].transform.position.z < raca.transform.position.z - 40) {
-			GameObject brisem = list[0];
-			Debug.Log("prisem primerek");
-			string id = brisem.GetComponent<nazajSkripta>().id;
-
-			if(id.Equals("cesta")){
-				brisem.GetComponent<izberiSpawnSkripta>().pobrisiVozila();
-				zadnjiCesta.GetComponent<nazajSkripta>().nazaj = brisem;
-				zadnjiCesta = brisem;
-			
-			}else if(id.Equals("zeleznica")){
-				zadnjiZeleznica.GetComponent<nazajSkripta>().nazaj = brisem;
-				zadnjiZeleznica = brisem;
-			}else if(id.Equals("siroka")){
-				zadnjiSiroka.GetComponent<nazajSkripta>().nazaj = brisem;
-				zadnjiSiroka = brisem;
-				brisem.GetComponent<SirokaRandomSkripta>().reset();
-			
-			}else if(id.Equals("trava")){
-				zadnjiTrava.GetComponent<nazajSkripta>().nazaj = brisem;
-				zadnjiTrava = brisem;
-			}else if(id.Equals("crte")){
-				zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
-				zadnjiCrte = brisem;
-			}
-			brisem.SetActive(false);
-			list.RemoveAt(0);
-		}*/
+        if(zaIzbrisatObjekt != null && zaIzbrisatObjekt != list[0])
+        {
+            pobrisiZadnjega();
+        }
 	}
 
 	void dodajElement(GameObject spawn, GameObject spawnTabela){
@@ -328,22 +265,18 @@ public class RandomCreatorSkripta : MonoBehaviour {
 				zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
 				zadnjiCrte = brisem;
 			}
-			brisem.SetActive(false);
+            brisem.GetComponent<nazajSkripta>().izbrisana = true;
+            brisem.SetActive(false);
 
 		}
 		list.Clear ();
-        for(int i=0; i < zadnjihX.Length; i++)
-        {
-            if(zadnjihX[i] != null)
-            {
-                zadnjihX[i].SetActive(false);
-            }
-        }
+        zadnjihX = new GameObject[5];
 		vec = Vector3.zero;
 		stTrav = 0;
 		Kmetija.SetActive (true);
 		list.Add (Kmetija);
 		StartPostavitev ();
+        zaIzbrisatObjekt = null;
 
 	}
 
@@ -351,50 +284,51 @@ public class RandomCreatorSkripta : MonoBehaviour {
 		return randomVozilo.vrniVozilo ();
 	}
 
+    
     public void pobrisiZadnjega()
     {
         
         GameObject brisem = list[0];
-        if (!brisem.GetComponent<nazajSkripta>().izbrisana)
+        
+        brisem.GetComponent<nazajSkripta>().izbrisana = true;
+        string id = brisem.GetComponent<nazajSkripta>().id;
+
+        if (id.Equals("cesta"))
         {
-            brisem.GetComponent<nazajSkripta>().izbrisana = true;
-            string id = brisem.GetComponent<nazajSkripta>().id;
+            brisem.GetComponent<izberiSpawnSkripta>().pobrisiVozila();
+            zadnjiCesta.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiCesta = brisem;
 
-            if (id.Equals("cesta"))
-            {
-                brisem.GetComponent<izberiSpawnSkripta>().pobrisiVozila();
-                zadnjiCesta.GetComponent<nazajSkripta>().nazaj = brisem;
-                zadnjiCesta = brisem;
-
-            }
-            else if (id.Equals("zeleznica"))
-            {
-                zadnjiZeleznica.GetComponent<nazajSkripta>().nazaj = brisem;
-                zadnjiZeleznica = brisem;
-            }
-            else if (id.Equals("siroka"))
-            {
-                zadnjiSiroka.GetComponent<nazajSkripta>().nazaj = brisem;
-                zadnjiSiroka = brisem;
-                brisem.GetComponent<SirokaRandomSkripta>().reset();
-
-            }
-            else if (id.Equals("trava"))
-            {
-                zadnjiTrava.GetComponent<nazajSkripta>().nazaj = brisem;
-                zadnjiTrava = brisem;
-            }
-            else if (id.Equals("crte"))
-            {
-                zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
-                zadnjiCrte = brisem;
-            }
-            
-            addZadnjih(brisem);
-            
-            list.RemoveAt(0);
         }
-        brisem.SetActive(false);
+        else if (id.Equals("zeleznica"))
+        {
+            zadnjiZeleznica.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiZeleznica = brisem;
+        }
+        else if (id.Equals("siroka"))
+        {
+            zadnjiSiroka.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiSiroka = brisem;
+            brisem.GetComponent<SirokaRandomSkripta>().reset();
+
+        }
+        else if (id.Equals("trava"))
+        {
+            zadnjiTrava.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiTrava = brisem;
+        }
+        else if (id.Equals("crte"))
+        {
+            zadnjiCrte.GetComponent<nazajSkripta>().nazaj = brisem;
+            zadnjiCrte = brisem;
+        }
+
+        addZadnjih(brisem);
+
+        list.RemoveAt(0);
+            
+            brisem.SetActive(false);
+        
 
     }
 
@@ -440,11 +374,10 @@ public class RandomCreatorSkripta : MonoBehaviour {
 
             }
             else
-            { //if(spawn == travaSiroka){
+            { 
                 dodajElement(prviSiroka, spawn);
             }
             prejsni = spawn;
-            //Destroy(list[brisi++]);
         }
     }
 

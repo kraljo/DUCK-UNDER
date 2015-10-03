@@ -150,7 +150,9 @@ public class SlediRaciSkripta : MonoBehaviour {
             if(RandomCreatorSkripta.zadnjihX[i] != null)
             {
                 RandomCreatorSkripta.zadnjihX[i].SetActive(true);
+                mapCreator.list.Insert(0, RandomCreatorSkripta.zadnjihX[i]);
             }
         }
+        mapCreator.zaIzbrisatObjekt = null;
     }
 }

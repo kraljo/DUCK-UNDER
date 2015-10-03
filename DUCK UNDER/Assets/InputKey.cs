@@ -48,6 +48,7 @@ public class InputKey : MonoBehaviour {
 					for (int i=0; i < hit.Length; i++) {
 						if (hit [i].point != null && hit [i].collider.gameObject.CompareTag ("teren") || hit [i].collider.gameObject.CompareTag ("tla") || hit [i].collider.gameObject.CompareTag ("voda")) {
 							tocka.transform.position = hit [i].point;
+                            tocka.SetActive(false);
 							tocka.SetActive(true);
 							Zvok();
 						}
@@ -63,7 +64,8 @@ public class InputKey : MonoBehaviour {
 				for (int i=0; i < hit.Length; i++) {
 					if (hit [i].point != null && hit [i].collider.gameObject.CompareTag ("teren") || hit [i].collider.gameObject.CompareTag ("tla") || hit [i].collider.gameObject.CompareTag ("voda")) {
 						tocka.transform.position = hit [i].point;
-						tocka.SetActive(true);
+                        tocka.SetActive(false);
+                        tocka.SetActive(true);
 						Zvok();
 					}
 				}

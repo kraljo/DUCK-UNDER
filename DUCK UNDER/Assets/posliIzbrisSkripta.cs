@@ -3,7 +3,8 @@ using System.Collections;
 
 public class posliIzbrisSkripta : MonoBehaviour {
 
-	// Use this for initialization
+    // Use this for initialization
+    public GameObject objekt;
 	void Start () {
 	
 	}
@@ -13,12 +14,11 @@ public class posliIzbrisSkripta : MonoBehaviour {
 	
 	}
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("unicevalka"))
         {
-            
-            other.gameObject.GetComponent<unicevalkaSkripta>().pobrisiZadnjega();
+            other.gameObject.GetComponent<unicevalkaSkripta>().pobrisiZadnjega(objekt);
         }
 
     }
